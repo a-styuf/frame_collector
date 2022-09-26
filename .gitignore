@@ -126,3 +126,8 @@ dmypy.json
 
 #my
 /build/*
+/Data/*
+!Data/Example_BDD_2021_02_07 08_23_22.txt
+!Data/Example_BDD_2021_02_07 08_23_46.txt
+!Data/Example_BDD_2021_02_07 08_24_10.txt
+!Data/Example_BDD_2021_02_07 08_24_33.txt

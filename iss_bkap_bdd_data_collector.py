@@ -74,14 +74,14 @@ for num, file_path in enumerate(list_dir_and_file):
         print("Всего строк в файле:", len(file_lines_str.split("\n")))
 
         frames_result = frame_pattern.findall(file_lines_str)
-        # print(num, file_path, len(frames_result))
+        # print(num, file_path, len(frames_result), frames_result)
         if frames_result:
             new_file_frames.append('\n' + file_path + '\n')
             new_file_frames.extend(frames_result)
         file_num += 1
     else:
-        # print("Обработка файла: ", file_path)
-        # print("Файл - не файл!", "\n")
+        print("Обработка файла: ", file_path)
+        print("Файл - не файл!", "\n")
         pass
 
 # проверка на уникальность кадров
@@ -102,6 +102,7 @@ for num, frame in enumerate(new_file_frames):
             break
     if copy:
         new_list.append(frame)
+        # print(frame)
 new_file_frames = new_list
 print("Количество повторя кадров: %d" % number_of_repeated_frames)
 
@@ -115,6 +116,9 @@ os.chdir("Data")
 
 with open("bdd_data.txt", "w") as new_file:
     new_file.write("".join(bdd_list))
+
+with open("bdd_data_frames.txt", "w") as new_file:
+    new_file.write(" \n".join(new_file_frames))
 
 print("Конец. Выполненно за %.3f" % (time.perf_counter() - time_start))
 input('Нажмите Enter для выхода\n')
